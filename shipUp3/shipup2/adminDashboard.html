@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/adminDashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="assets/js/adminDashboard.js"></script>
+</head>
+<body class="fixed-nav sticky-footer bg-dark" id="page-top">
+<!-- Navigation-->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <a class="navbar-brand" href="index.html">ShipUp Admin!</a>
+    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
+                <a class="nav-link" href="adminDashboard.html">
+                    <i class="fa fa-fw fa-dashboard"></i>
+                    <span class="nav-link-text">Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Charts">
+                <a class="nav-link" href="databaseInterface.html">
+                    <i class="fa fa-fw fa-area-chart"></i>
+                    <span class="nav-link-text">Database</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Tables">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-fw fa-table"></i>
+                    <span class="nav-link-text">Charts</span>
+                </a>
+            </li>
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
+                <a class="nav-link" href="#">
+                    <i class="fa fa-fw fa-link"></i>
+                    <span class="nav-link-text">Link</span>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav sidenav-toggler">
+            <li class="nav-item">
+                <a class="nav-link text-center" id="sidenavToggler">
+                    <i class="fa fa-fw fa-angle-left"></i>
+                </a>
+            </li>
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal" href="adminLogin.html">
+                    <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="content-wrapper">
+    <div class="container-fluid">
+        <!-- Breadcrumbs-->
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="adminDashboard.html">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">My Dashboard</li>
+        </ol>
+        <!-- Icon Cards-->
+        <div class="row">
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-primary o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-comments"></i>
+                        </div>
+                        <div class="mr-5">0 New Messages!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-warning o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-list"></i>
+                        </div>
+                        <div class="mr-5">2 New Tasks!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-success o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-shopping-cart"></i>
+                        </div>
+                        <div class="mr-5">12 New Orders!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+            <div class="col-xl-3 col-sm-6 mb-3">
+                <div class="card text-white bg-danger o-hidden h-100">
+                    <div class="card-body">
+                        <div class="card-body-icon">
+                            <i class="fa fa-fw fa-support"></i>
+                        </div>
+                        <div class="mr-5">2 New Reviews!</div>
+                    </div>
+                    <a class="card-footer text-white clearfix small z-1" href="#">
+                        <span class="float-left">View Details</span>
+                        <span class="float-right">
+                <i class="fa fa-angle-right"></i>
+              </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <!-- Example DataTables Card-->
+        <div class="card mb-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i> Company Staff Information </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                        </thead>
+                        <tfoot>
+                        <tr>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Office</th>
+                            <th>Age</th>
+                            <th>Start date</th>
+                            <th>Salary</th>
+                        </tr>
+                        </tfoot>
+                        <tbody>
+                        <tr>
+                            <td>Precious Stone</td>
+                            <td>System Architect</td>
+                            <td>CST</td>
+                            <td>22</td>
+                            <td>2021/04/25</td>
+                            <td>N20,800</td>
+                        </tr>
+                        <tr>
+                            <td>Mogbo Winters</td>
+                            <td>Accountant</td>
+                            <td>CLDS</td>
+                            <td>31</td>
+                            <td>2020/07/25</td>
+                            <td>N170,750</td>
+                        </tr>
+                        <tr>
+                            <td>Ashton Play</td>
+                            <td>Junior Technical Author</td>
+                            <td>Teechnical Crew</td>
+                            <td>24</td>
+                            <td>2020/01/12</td>
+                            <td>N86,000</td>
+                        </tr>
+                        <tr>
+                            <td>Cedric Kelly</td>
+                            <td>Senior Javascript Developer</td>
+                            <td>Chapel</td>
+                            <td>22</td>
+                            <td>2020/03/29</td>
+                            <td>N433,060</td>
+                        </tr>
+                        <tr>
+                            <td>Sanchez Santos</td>
+                            <td>Developer</td>
+                            <td>CST</td>
+                            <td>33</td>
+                            <td>2020/11/28</td>
+                            <td>N162,700</td>
+                        </tr>
+                        <tr>
+                            <td>Tru Williamson</td>
+                            <td>Driver </td>
+                            <td>New York</td>
+                            <td>26</td>
+                            <td>2020/12/02</td>
+                            <td>N72,000</td>
+                        </tr>
+                        <tr>
+                            <td>Herrod Chandler</td>
+                            <td>Sales Assistant</td>
+                            <td>CBSS</td>
+                            <td>29</td>
+                            <td>2020/08/06</td>
+                            <td>N137,500</td>
+                        </tr>
+                        <tr>
+                            <td>Rhona Davidson</td>
+                            <td>Integration Specialist</td>
+                            <td>SBS</td>
+                            <td>35</td>
+                            <td>2019/10/14</td>
+                            <td>N327,900</td>
+                        </tr>
+                        <tr>
+                            <td>Ola Ola</td>
+                            <td>Javascript Developer</td>
+                            <td>ALDC</td>
+                            <td>39</td>
+                            <td>2019/09/15</td>
+                            <td>N205,500</td>
+                        </tr>
+                        <tr>
+                            <td>Sonya Dada</td>
+                            <td>Software Engineer</td>
+                            <td>Hall Buttery</td>
+                            <td>23</td>
+                            <td>2018/12/13</td>
+                            <td>N103,600</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+        <div class="container">
+            <div class="text-center">
+                <small>Copyright © ShipUp 2021</small>
+            </div>
+        </div>
+    </footer>
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fa fa-angle-up"></i>
+    </a>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="login.html">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
